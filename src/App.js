@@ -1,16 +1,32 @@
 import React,{Component} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
  import Board from "./board"
-    class App extends Component {
+
+ const apiKey = "f8fd58024b0cb495538a72009478e9b1";
+ const token =
+   "cd01d05e0ddf70aec5e7130b16463fdf99378cb2925a98b91f50b5c623f32e9b";
+
+     
+ class App extends Component {
       state = {
-         boards:this.props.boards
-       
+         boards:[]
       };
+      componentDidMount(){
+        fetch(
+          "https://api.trello.com/1/members/rohitjha13/boards?&key=" +
+            apiKey +
+            "&token=" +
+            token +
+            ""
+        ).then(a=> a.json()).then(responseObject=>(this.setState({boards:responseObject})))
+        
+      }
       
     render() {
-      console.log(this.state.boards);
       return (
-        <section>
+        <Router>
+          <Route exact path="/">
+          <section>
           <h1>
             Personal Boards
           </h1>
@@ -18,6 +34,15 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
           {this.state.boards.map(board=>(<Board board={board}/>))}
           </div>
         </section>
+          </Route>
+            <Route exact path="/board">
+              <div>
+                
+                
+              </div>
+            </Route>
+      
+        </Router>
       );
     }
   }

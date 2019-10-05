@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
- class List extends Component {
+ class Lists extends Component {
      state = {  }
      render() { 
          return (
@@ -9,4 +9,4 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
      }
  }
   
- export default List;
+ export default Lists;
