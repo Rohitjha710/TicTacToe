@@ -6,10 +6,12 @@ const token =
 
 class Lists extends Component {
   state = {
-    boardId: this.props.boardId,
+    //boardId: this.props.boardId,
+    boardId:this.props.match.params.id,
     lists: []
   };
   componentDidMount() {
+    // this.setState({boardId:this.props.match.params.id})
     fetch(
       "https://api.trello.com/1/boards/" +
         this.state.boardId +
@@ -22,6 +24,8 @@ class Lists extends Component {
       .then(lists => this.setState({ lists: lists }));
   }
   render() {
+    console.log(this.props)
+    
     return (
       <section className="lists">
         {" "}

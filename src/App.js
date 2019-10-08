@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Board from "./board";
 import Lists from "./lists";
+import "./App.css"
 const apiKey = "f8fd58024b0cb495538a72009478e9b1";
 const token =
   "cd01d05e0ddf70aec5e7130b16463fdf99378cb2925a98b91f50b5c623f32e9b";
@@ -12,6 +13,7 @@ class App extends Component {
     currentBoardId: ""
   };
   componentDidMount() {
+    console.log("component Did mount called");
     fetch(
       "https://api.trello.com/1/members/rohitjha13/boards?&key=" +
         apiKey +
@@ -20,13 +22,14 @@ class App extends Component {
         ""
     )
       .then(a => a.json())
-      .then(responseObject => this.setState({ boards: responseObject }));
+      .then(responseObject =>{console.log("data fetched and state changed"); this.setState({ boards: responseObject })});
   }
   setCurrentBoardId = boardId => {
     this.setState({ currentBoardId: boardId });
   };
 
   render() {
+    console.log("render\n")
     return (
       <Router>
         <Route exact path="/">
@@ -43,12 +46,12 @@ class App extends Component {
             </div>
           </main>
         </Route>
-        <Route exact path="/b">
-          <Lists boardId={this.state.currentBoardId} />
-        </Route>
+        <Route  path="/b/:id" render = {(props) =><Lists {...props}/>}/>
+          {/* <Lists boardId={this.state.currentBoardId} /> */} 
+         {/* </Route>/ */}
       </Router>
     );
-  }
+   }
 }
 
 export default App;

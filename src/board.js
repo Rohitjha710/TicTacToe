@@ -10,7 +10,7 @@ class Board extends Component {
   render() {
     return (
       
-        <Link to="/b">
+        <Link to={`/b/${this.state.boardId}`}>
         <div  className="board" onClick={this.props.setCurrentBoardId.bind(this,this.state.boardId)}>
             <h2>{this.state.boardName}</h2>
         
