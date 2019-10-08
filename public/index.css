@@ -50,10 +50,18 @@ text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  padding-left: 2rem;
 }
-.card
+.card 
 {
  background-color: white;
   width: 90%;
-  margin-left: 5%;
+  /* margin-left: 5%; */
+}
+.modalList
+{
+  background-color: white;
+  width: 90%;
+ 
+
 }

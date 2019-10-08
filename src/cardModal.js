@@ -20,7 +20,7 @@ class cardModal extends React.Component {
     super();
  
     this.state = {
-      modalIsOpen: this.props.modal
+      modalIsOpen: false
     };
  
     this.openModal = this.openModal.bind(this);
@@ -43,9 +43,9 @@ class cardModal extends React.Component {
  
   render() {
     return (
-      <div>
+      <div >
           
-        {/* <button onClick={this.openModal}>Open Modal</button> */}
+        <span className="modalList" onClick={this.openModal}>{this.props.cardName}</span>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -54,16 +54,9 @@ class cardModal extends React.Component {
           contentLabel="Example Modal"
         >
  
-          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+          <h2 ref={subtitle => this.subtitle = subtitle}></h2>
           <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
+          {this.props.cardName}
         </Modal>
       </div>
     );

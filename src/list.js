@@ -29,8 +29,10 @@ class List extends Component {
 
   render() {
   //return <Modal></Modal>
-    return this.state.cards.map((card,i )=> <span onClick={()=>this.displayAlert(i)} key={card.id} className="card" >.{card.name}</span>);
-  }
+  // return this.state.cards.map((card,i )=> <span onClick={()=>this.displayAlert(i)} key={card.id} className="card" >.{card.name}</span>);
+  return this.state.cards.map((card,i )=> <Modal key={card.id} cardName={card.name} className="card" ></Modal>);
+    
+}
 }
 
 export default List;
