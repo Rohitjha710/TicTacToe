@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Board from "./board";
-import List from "./lists";
+import Lists from "./lists";
 const apiKey = "f8fd58024b0cb495538a72009478e9b1";
 const token =
   "cd01d05e0ddf70aec5e7130b16463fdf99378cb2925a98b91f50b5c623f32e9b";
@@ -27,7 +27,6 @@ class App extends Component {
   };
 
   render() {
-
     return (
       <Router>
         <Route exact path="/">
@@ -35,7 +34,8 @@ class App extends Component {
             <h1>Personal Boards</h1>
             <div className="boards">
               {this.state.boards.map(board => (
-                <Board key={board.id}
+                <Board
+                  key={board.id}
                   setCurrentBoardId={this.setCurrentBoardId}
                   board={board}
                 />
@@ -44,8 +44,7 @@ class App extends Component {
           </main>
         </Route>
         <Route exact path="/b">
-            <List boardId={this.state.currentBoardId} />
-          
+          <Lists boardId={this.state.currentBoardId} />
         </Route>
       </Router>
     );

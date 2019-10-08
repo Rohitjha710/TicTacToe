@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import List from "./list"
+import List from "./list";
 const apiKey = "f8fd58024b0cb495538a72009478e9b1";
 const token =
   "cd01d05e0ddf70aec5e7130b16463fdf99378cb2925a98b91f50b5c623f32e9b";
@@ -24,12 +24,13 @@ class Lists extends Component {
   render() {
     return (
       <section className="lists">
-          {" "}
-          {this.state.lists.map(list => (
-              <div className="list"><h2>{list.name}</h2><List key={list.id} listId={list.id}/></div>
-            
-          ))}
-        
+        {" "}
+        {this.state.lists.map(list => (
+          <div className="list">
+            <h2>{list.name}</h2>
+            <List key={list.id} listId={list.id} />
+          </div>
+        ))}
       </section>
     );
   }
