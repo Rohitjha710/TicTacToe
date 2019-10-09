@@ -22,8 +22,7 @@ class cardModal extends React.Component {
     boardId: "",
     cardId: "",
     currentcardName: "",
-    currentcardDescription: "",
-    cardName:""
+    currentcardDescription: ""
   };
   constructor() {
     super();
@@ -52,7 +51,8 @@ class cardModal extends React.Component {
           .then(card =>
             this.setState({
               currentcardName: card.name,
-              currentcardDescription: card.desc
+              currentcardDescription: card.desc,
+
             })
           );
       }
@@ -72,12 +72,13 @@ class cardModal extends React.Component {
     this.setState({ modalIsOpen: false });
   }
   handleChange=(event)=> {
-    this.setState({ cardName: event.target.value });
+    this.setState({ currentcardName: event.target.value });
   }
 
   handleSubmit=(event)=> {
-    this.setState({
-    });
+    fetch('https://api.trello.com/1/cards/'+this.state.cardId+'?name='+this.state.currentcardName+'&key='+apiKey+'&token='+token+'',{method :"PUT"})
+    .then(modifiedCardResponse=>modifiedCardResponse.json())
+    .then(modifiedCard=> console.log(modifiedCard))
 
     event.preventDefault();
   }
@@ -97,7 +98,16 @@ class cardModal extends React.Component {
           contentLabel="Example Modal"
         >
           {/* {} */}
-          
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              <input ref={subtitle => (this.subtitle = subtitle)}
+                type="text"
+                value={this.state.currentcardName}
+                onChange={this.handleChange}
+              />
+            </label>
+            <input className="comment-submit" type="submit" value="Modify card" />
+          </form>
           {/* {} */}
           <h2 ref={subtitle => (this.subtitle = subtitle)}>
             {this.state.currentcardName}
