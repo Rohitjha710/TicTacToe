@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Card from "./cardModal";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 const apiKey = "f8fd58024b0cb495538a72009478e9b1";
 const token =
   "cd01d05e0ddf70aec5e7130b16463fdf99378cb2925a98b91f50b5c623f32e9b";
@@ -34,10 +34,9 @@ class List extends Component {
 
   render() {
     return this.state.cards.map((card, i) => (
-      <Link to={`/b/${this.props.boardId}/c/${card.id}`} >
+      <Link to={`/b/${this.props.boardId}/c/${card.id}`}>
         <div> {card.name}</div>
-        {/* <Card  key={card.id} cardName={card.name} className="card"></Card>  */}
-        </Link> 
+      </Link>
     ));
   }
 }

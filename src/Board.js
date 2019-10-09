@@ -6,7 +6,7 @@ const token =
 
 class Lists extends Component {
   state = {
-    boardId:this.props.match.params.id,
+    boardId: this.props.match.params.id,
     lists: []
   };
   componentDidMount() {
@@ -22,14 +22,13 @@ class Lists extends Component {
       .then(lists => this.setState({ lists: lists }));
   }
   render() {
-    
     return (
       <section className="lists">
         {" "}
         {this.state.lists.map(list => (
           <div className="list">
             <h2>{list.name}</h2>
-            <List  boardId={this.state.boardId}key={list.id} listId={list.id} />
+            <List boardId={this.state.boardId} key={list.id} listId={list.id} />
           </div>
         ))}
       </section>
