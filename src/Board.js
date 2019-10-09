@@ -1,17 +1,15 @@
 import React, { Component } from "react";
-import List from "./list";
+import List from "./List";
 const apiKey = "f8fd58024b0cb495538a72009478e9b1";
 const token =
   "cd01d05e0ddf70aec5e7130b16463fdf99378cb2925a98b91f50b5c623f32e9b";
 
 class Lists extends Component {
   state = {
-    //boardId: this.props.boardId,
     boardId:this.props.match.params.id,
     lists: []
   };
   componentDidMount() {
-    // this.setState({boardId:this.props.match.params.id})
     fetch(
       "https://api.trello.com/1/boards/" +
         this.state.boardId +
@@ -24,7 +22,6 @@ class Lists extends Component {
       .then(lists => this.setState({ lists: lists }));
   }
   render() {
-    console.log(this.props)
     
     return (
       <section className="lists">
@@ -32,7 +29,7 @@ class Lists extends Component {
         {this.state.lists.map(list => (
           <div className="list">
             <h2>{list.name}</h2>
-            <List key={list.id} listId={list.id} />
+            <List  boardId={this.state.boardId}key={list.id} listId={list.id} />
           </div>
         ))}
       </section>

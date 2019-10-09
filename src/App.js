@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Board from "./board";
-import Lists from "./lists";
+import BoardHeader from "./BoardHeader";
+import Board from "./Board";
+import Card from "./cardModal"
 import "./App.css"
 const apiKey = "f8fd58024b0cb495538a72009478e9b1";
 const token =
@@ -10,7 +11,8 @@ const token =
 class App extends Component {
   state = {
     boards: [],
-    currentBoardId: ""
+    currentBoardId: "",
+    currentCard:""
   };
   componentDidMount() {
     console.log("component Did mount called");
@@ -27,6 +29,11 @@ class App extends Component {
   setCurrentBoardId = boardId => {
     this.setState({ currentBoardId: boardId });
   };
+  currentCard=(card)=>{
+console.log(card);
+this.setState({currentCard:card})
+
+  }
 
   render() {
     console.log("render\n")
@@ -37,7 +44,7 @@ class App extends Component {
             <h1>Personal Boards</h1>
             <div className="boards">
               {this.state.boards.map(board => (
-                <Board
+                <BoardHeader
                   key={board.id}
                   setCurrentBoardId={this.setCurrentBoardId}
                   board={board}
@@ -46,9 +53,10 @@ class App extends Component {
             </div>
           </main>
         </Route>
-        <Route  path="/b/:id" render = {(props) =><Lists {...props}/>}/>
+        <Route   exact path="/b/:id" render = {(props) =><Board  {...props}/>}/>
           {/* <Lists boardId={this.state.currentBoardId} /> */} 
          {/* </Route>/ */}
+        <Route  exact path="/b/:id/c/:cardId" render = {(props)=> <React.Fragment><Board  {...props}/> <Card  {...props}/></React.Fragment>}/>
       </Router>
     );
    }
@@ -56,47 +64,3 @@ class App extends Component {
 
 export default App;
 
-// functionsetCurrentBoardId   return <h2>Home</h2>;
-// }
-
-// function About() {
-//   return <h2>About</h2>;
-// }
-
-// function Users() {
-//   return <h2>Users</h2>;
-// }
-
-// export default function App() {
-//   return (
-//     <Router>
-//       <div>
-//         <nav>
-//           <ul>
-//             <li>
-//               <Link to="/">Home</Link>
-//             </li>
-//             <li>
-//               <Link to="/about">About</Link>
-//             </li>
-//             <li>
-//               <Link to="/users">Users</Link>
-//             </li>
-//           </ul>
-//         </nav>
-
-//         <Switch>
-//           <Route path="/about">
-//             <About />
-//           </Route>
-//           <Route path="/users">
-//             <Users />
-//           </Route>
-//           <Route path="/">
-//             <Home />
-//           </Route>
-//         </Switch>
-//       </div>
-//     </Router>
-//   );
-// }

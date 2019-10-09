@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {  Link } from "react-router-dom";
 
-class Board extends Component {
+class BoardHeader extends Component {
   state = {
     boardId:this.props.board.id,
     boardName: this.props.board.name
@@ -24,4 +24,4 @@ class Board extends Component {
   }
 }
 
-export default Board;
+export default BoardHeader;
