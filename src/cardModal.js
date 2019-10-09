@@ -22,7 +22,8 @@ class cardModal extends React.Component {
     boardId: "",
     cardId: "",
     currentcardName: "",
-    currentcardDescription: ""
+    currentcardDescription: "",
+    cardName:""
   };
   constructor() {
     super();
@@ -70,6 +71,17 @@ class cardModal extends React.Component {
   closeModal() {
     this.setState({ modalIsOpen: false });
   }
+  handleChange=(event)=> {
+    this.setState({ cardName: event.target.value });
+  }
+
+  handleSubmit=(event)=> {
+    this.setState({
+    });
+
+    event.preventDefault();
+  }
+
 
   render() {
     return (
@@ -84,6 +96,9 @@ class cardModal extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
+          {/* {} */}
+          
+          {/* {} */}
           <h2 ref={subtitle => (this.subtitle = subtitle)}>
             {this.state.currentcardName}
           </h2>
