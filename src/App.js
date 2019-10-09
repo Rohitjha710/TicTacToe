@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import BoardHeader from "./BoardHeader";
 import Board from "./Board";
-import Card from "./cardModal";
+import Card from "./CardModal";
 import "./App.css";
 const apiKey = "f8fd58024b0cb495538a72009478e9b1";
 const token =
