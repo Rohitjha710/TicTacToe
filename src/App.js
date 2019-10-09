@@ -49,7 +49,7 @@ class App extends Component {
                 <BoardHeader
                   key={board.id}
                   setCurrentBoardId={this.setCurrentBoardId}
-                  board={board}
+                  {...board}
                 />
               ))}
             </div>
