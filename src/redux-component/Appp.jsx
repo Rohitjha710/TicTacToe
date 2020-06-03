@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import {connect } from "react-redux";
-import {fetchPost} from '../actions/postActions'
+import {fetchPost} from '../actions/postActions';
 
 class Appp extends Component {
 componentDidMount(){

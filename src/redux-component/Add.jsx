@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
+import {createPost} from '../actions/postActions';
 class Add extends Component {
   state = { title: "", body: "" };
   onChange = e => {
@@ -12,16 +14,7 @@ class Add extends Component {
         title:title,
         body:body
     }
-    fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: "POST",
-      headers:{
-          'content-type':'application/json'
-      },
-      body: JSON.stringify(post)
-    }).then(a=>a.json())
-      .then(r => {
-        console.log(r);
-      });
+   this.props.createPost(post)
   };
   render() {
     return (
@@ -43,5 +36,7 @@ class Add extends Component {
     );
   }
 }
-
-export default Add;
+// const mapStateToProps =state =>({
+//     posts:state.posts.items
+// })
+export default connect(null,{createPost})(Add);

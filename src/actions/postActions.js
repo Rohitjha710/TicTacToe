@@ -1,4 +1,4 @@
-import { FETCH_POST } from "./types";
+import { FETCH_POST, NEW_POST } from "./types";
 export const fetchPost = ()=>dispatch=>{
   
         fetch("https://jsonplaceholder.typicode.com/posts")
@@ -6,4 +6,10 @@ export const fetchPost = ()=>dispatch=>{
         .then(post => dispatch({type:FETCH_POST,payload:post}));
     
     
+};
+export const createPost = (postData)=>dispatch=>{
+  console.log("actionnnnnnnnnn")
+  dispatch({type:NEW_POST,payload:postData})
+        
+
 };
