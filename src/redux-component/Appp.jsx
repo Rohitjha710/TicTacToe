@@ -7,6 +7,11 @@ class Appp extends Component {
 componentDidMount(){
     this.props.fetchPost(); 
 }
+componentWillReceiveProps(nextProps){
+if(nextProps.newPost){
+    this.props.posts.unshift(nextProps.newPost)
+}
+}
   render() {
     return (
         <React.Fragment>
@@ -24,6 +29,7 @@ componentDidMount(){
   }
 }
 const mapStateToProps =state =>({
-    posts:state.posts.items
+    posts:state.posts.items,
+    newPost:state.posts.item
 })
 export default connect(mapStateToProps,{fetchPost})(Appp);

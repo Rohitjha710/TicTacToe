@@ -9,8 +9,10 @@ export default function(state=initialState,action){
                 ...state,items:action.payload
             }
             case NEW_POST :
+                let state1= {...state};
+                state1.items.unshift(action.payload)
                 return{
-                    ...state,items:action.payload
+                    ...state1,item:action.payload
                 }
     default : return state
     }
