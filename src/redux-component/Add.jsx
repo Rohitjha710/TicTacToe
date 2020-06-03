@@ -36,7 +36,7 @@ class Add extends Component {
     );
   }
 }
-// const mapStateToProps =state =>({
-//     posts:state.posts.items
-// })
-export default connect(null,{createPost})(Add);
+const mapStateToProps =state =>({
+    posts:state.posts.items
+})
+export default connect(mapStateToProps,{createPost})(Add);
