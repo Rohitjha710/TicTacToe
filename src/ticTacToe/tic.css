@@ -1,0 +1,61 @@
+.containerr {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  background-color: hsl(0, 0%, 94%);
+  /* border: 1px solid; */
+  /* border-left:1px solid;
+    border-right:1px solid;
+    border-top:1px solid;
+    border-bottom:1px solid; */
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cube0 {
+  border-right: 1px solid;
+  border-top: 1px solid;
+
+  width: 33.3%;
+  box-sizing: border-box;
+  height: 99px;
+  /* background-color: white; */
+  font-size: 80px;
+  text-align: center;
+}
+.modalP{
+    width: 80%;
+    height: 100px;
+    background-color: lightcoral;
+    position: absolute;
+    bottom: 100px;
+    left: 30px;
+}
+.cube00 {
+    border-right: 1px solid;
+   
+    width: 33.3%;
+    box-sizing: border-box;
+    height: 99px;
+    /* background-color: white; */
+    font-size: 80px;
+    text-align: center;
+  }
+.cube1 {
+  border-top: 1px solid;
+  width: 33.4%;
+  box-sizing: border-box;
+  height: 99px;
+  /* background-color: white; */
+  font-size: 80px;
+  text-align: center;
+}
+
+.cube01 {
+    width: 33.4%;
+    box-sizing: border-box;
+    height: 99px;
+    /* background-color: white; */
+    font-size: 80px;
+    text-align: center;
+  }
